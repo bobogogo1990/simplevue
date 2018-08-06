@@ -1,3 +1,12 @@
-console.log('hi');
-const app = document.getElementById('app');
-app.innerHTML = '<h1>Hello Webpack!</h1>';
+import Vue from 'vue';
+import App from "./components/App.vue";
+
+Vue.config.productionTip = false;
+
+new Vue({
+  el: '#app',
+  template: '<App/>',
+  components: {
+    App,
+  }
+});
