@@ -29,10 +29,6 @@ export default {
   }
 };
 </script>
+<style lang="less" scoped src="./index.less"></style>
 
-<style>
-.header {
-  background-color: #eee;
-  font-size: 40px;
-}
-</style>
+
