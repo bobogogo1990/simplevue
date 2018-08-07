@@ -14,9 +14,9 @@ module.exports = {
   entry: ['babel-polyfill', './src/main.js'],
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'bundle.[hash].js',
+    filename: '[name].bundle.js',
     hashDigestLength: 5, // 指定hash和chunkhash的长度
-    chunkFilename: '[name].bundle.js',
+    chunkFilename: '[name].[hash].js',
   },
   module: {
     rules: [
@@ -47,6 +47,9 @@ module.exports = {
   devServer: {
     contentBase: './dist',
     hot: true,
+    historyApiFallback: {
+      disableDotRule: true
+    }
   },
   plugins: [
     new VueLoaderPlugin(),
