@@ -6,12 +6,15 @@
       <div class="msg">
         {{msg}}
       </div>
-      <Message />
-      <Friend />
+      <div class="navs">
+        <span v-on:click="pushWindow($event, 'friend')">去friend</span>
+        <span v-on:click="pushWindow($event, 'message')">去message</span>
+      </div>
+      <router-view />
     </div>
     <div class="footer">{{footer}}</div>
-    <input v-model="username" />
-  </div>
+    <input v-model="username" />  </div>
+
 </template>
 
 <script>
@@ -33,10 +36,11 @@ export default {
     const r = await getUserInfo();
     this.msg = r.data.userId;
   },
-  components: {
-    Friend,
-    Message: () =>
-      import(/* webpackChunkName: "Message" */ "components/Message")
+  methods: {
+    pushWindow(e, path) {
+      console.log("message", path);
+      this.$router.push(path);
+    }
   }
 };
 </script>
