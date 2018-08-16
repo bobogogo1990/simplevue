@@ -17,6 +17,7 @@ module.exports = {
     filename: '[name].bundle.js',
     hashDigestLength: 5, // 指定hash和chunkhash的长度
     chunkFilename: '[name].[hash].js',
+    publicPath: '/',
   },
   module: {
     rules: [
